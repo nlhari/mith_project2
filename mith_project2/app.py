@@ -31,7 +31,7 @@ engine = create_engine("sqlite:///db.sqlite")
 #################################################
 # Flask Setup
 #################################################
-app = Flask(__name__)
+# app = Flask(__name__)
 
 #################################################
 # Database Setup
@@ -57,21 +57,12 @@ def home():
 def usauto():
     print("code reached here")
 
-    # Create our session (link) from Python to the DB
-    # session = Session(engine)
-
-    """Return a list of all passenger names"""
-    # Query all passengers
-    # results = session.query(usautotable).all()
     usautotable = pd.read_sql('select * from usautotable', con=engine)
 
     results = usautotable.to_dict(orient='records')
 
     # results = usautotable.to_json(orient='records')
     # results = json.loads(results)
-
-
-    # session.close()
 
     return jsonify(results)
 
