@@ -5,7 +5,8 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func, inspect
+from sqlalchemy import create_engine, func
+from mith_project2 import app
 
 from flask import (
     Flask,
@@ -55,7 +56,7 @@ def home():
 
 @app.route("/api/usauto")
 def usauto():
-    print("code reached here")
+    # print("code reached here")
 
     usautotable = pd.read_sql('select * from usautotable', con=engine)
 
@@ -66,5 +67,5 @@ def usauto():
 
     return jsonify(results)
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
