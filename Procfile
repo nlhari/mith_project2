@@ -1,1 +1,1 @@
-web: gunicorn usauto:app
+web: gunicorn mith_project2:app
